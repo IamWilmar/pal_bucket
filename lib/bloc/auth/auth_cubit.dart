@@ -24,6 +24,7 @@ class AuthCubit extends Cubit<AuthState> {
     };
     PalBucketApi.httpPost('/auth/login', data).then((json) {
       final authResponse = AuthResponse.fromMap(json);
+      this.user = authResponse.user;
       LocalStorage.prefs.setString('token', authResponse.token);
       PalBucketApi.configureDio();
       isAuthenticated();

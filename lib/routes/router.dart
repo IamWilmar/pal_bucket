@@ -14,7 +14,7 @@ class Flurorouter {
   //App Paths
   static String homeRoute = '/home';
   static String profileRoute = '/home/profile';
-  static String messagesRoutes = '/home/messages';
+  static String friendsRoutes = '/home/friends';
   static String userRoute = '/home/user/:uid';
 
   static void configureRoutes() {
@@ -37,10 +37,20 @@ class Flurorouter {
       transitionType: TransitionType.none,
     );
 
-    //App Routes
+    //Home Routes
     router.define(
       homeRoute,
       handler: HomeHandlers.homeHandler,
+      transitionType: TransitionType.fadeIn,
+    );
+    router.define(
+      profileRoute,
+      handler: HomeHandlers.profileHandler,
+      transitionType: TransitionType.fadeIn,
+    );
+    router.define(
+      friendsRoutes,
+      handler: HomeHandlers.friendsHandler,
       transitionType: TransitionType.fadeIn,
     );
 
