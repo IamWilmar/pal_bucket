@@ -7,13 +7,14 @@ import 'package:pal_bucket/services/local_storage.dart';
 import 'package:pal_bucket/services/navigation_service.dart';
 import 'package:pal_bucket/services/notifications_service.dart';
 import 'package:pal_bucket/utils/auth_status.dart';
+import 'package:pal_bucket/models/http/user.dart';
 
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
   //String? _token;
   AuthStatus authStatus = AuthStatus.checking;
-  Usuario? user;
+  User? user;
   AuthCubit() : super(AuthInitial());
 
   login(String email, String password) {
@@ -40,7 +41,7 @@ class AuthCubit extends Cubit<AuthState> {
     };
     PalBucketApi.httpPost('/auth/register', data).then((json) {
       final authResponse = AuthResponse.fromMap(json);
-      this.user = authResponse.usuario;
+      this.user = authResponse.user;
       LocalStorage.prefs.setString('token', authResponse.token);
       PalBucketApi.configureDio();
       isAuthenticated();
@@ -63,7 +64,7 @@ class AuthCubit extends Cubit<AuthState> {
       final resp = await PalBucketApi.httpGet('/auth');
       final authResponse = AuthResponse.fromMap(resp);
       LocalStorage.prefs.setString('token', authResponse.token);
-      this.user = authResponse.usuario;
+      this.user = authResponse.user;
       authStatus = AuthStatus.authenticated;
       emit(new AuthInitial(
         authStatus: AuthStatus.authenticated,
