@@ -13,4 +13,15 @@ class CustomLabels {
     fontWeight: FontWeight.w200,
     color: Colors.white,
   );
+
+  static TextStyle h4Black = GoogleFonts.montserratAlternates(
+    fontSize: 20,
+    fontWeight: FontWeight.w400,
+    color: Colors.black,
+  );
+  static TextStyle h5Black = GoogleFonts.montserratAlternates(
+    fontSize: 17,
+    fontWeight: FontWeight.w300,
+    color: Colors.black,
+  );
 }

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pal_bucket/bloc/auth/auth_cubit.dart';
 import 'package:pal_bucket/ui/layouts/auth/widgets/background_auth.dart';
 import 'package:pal_bucket/ui/layouts/auth/widgets/custom_title.dart';
 

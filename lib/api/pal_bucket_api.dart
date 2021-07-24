@@ -20,8 +20,7 @@ class PalBucketApi {
     try {
       final response = await _dio.get(path);
       return response.data;
-    } on DioError catch (e) {
-      print(e.response);
+    } catch (e) {
       throw ('Error en el Get');
     }
   }

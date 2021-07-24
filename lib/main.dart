@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pal_bucket/api/pal_bucket_api.dart';
 import 'package:pal_bucket/bloc/auth/auth_cubit.dart';
 import 'package:pal_bucket/bloc/navbar/navbar_cubit.dart';
+import 'package:pal_bucket/bloc/users/users_bloc.dart';
 import 'package:pal_bucket/routes/router.dart';
 import 'package:pal_bucket/services/local_storage.dart';
 import 'package:pal_bucket/services/navigation_service.dart';
@@ -29,6 +30,7 @@ class AppState extends StatelessWidget {
       providers: [
         BlocProvider(lazy: false, create: (_) => AuthCubit()),
         BlocProvider(lazy: false, create: (_) => NavbarCubit()),
+        BlocProvider(create: (_) => UsersBloc()),
       ],
       child: MyApp(),
     );

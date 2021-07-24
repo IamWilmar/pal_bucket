@@ -1,5 +1,4 @@
 import 'package:fluro/fluro.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:pal_bucket/bloc/auth/auth_cubit.dart';
 import 'package:pal_bucket/ui/layouts/splash/splash_layout.dart';
 import 'package:pal_bucket/ui/views/app/home_view.dart';

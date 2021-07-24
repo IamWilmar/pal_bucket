@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pal_bucket/bloc/navbar/navbar_cubit.dart';
 import 'package:pal_bucket/routes/router.dart';
 import 'package:pal_bucket/services/navigation_service.dart';
-import 'package:pal_bucket/ui/buttons/link_text.dart';
 import 'package:pal_bucket/ui/buttons/nav_button.dart';
 import 'package:pal_bucket/ui/labels/custom_labels.dart';
 

@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
 import 'package:pal_bucket/api/pal_bucket_api.dart';
 import 'package:pal_bucket/models/http/auth_response.dart';
 import 'package:pal_bucket/routes/router.dart';
