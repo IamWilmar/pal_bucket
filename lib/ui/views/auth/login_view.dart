@@ -36,7 +36,7 @@ class LoginView extends StatelessWidget {
                     children: [
                       TextFormField(
                         onFieldSubmitted: (_) =>
-                            onFormSubmit(loginCubit, authCubit),
+                            onFormSubmit(context, loginCubit, authCubit),
                         validator: (value) {
                           if (!EmailValidator.validate(value ?? ''))
                             return 'Email no válido';
@@ -54,7 +54,7 @@ class LoginView extends StatelessWidget {
                       SizedBox(height: 20),
                       TextFormField(
                         onFieldSubmitted: (_) =>
-                            onFormSubmit(loginCubit, authCubit),
+                            onFormSubmit(context, loginCubit, authCubit),
                         onChanged: (value) => loginCubit.password = value,
                         validator: (value) {
                           if (value == null || value.isEmpty)
@@ -77,7 +77,8 @@ class LoginView extends StatelessWidget {
                         width: double.infinity,
                         child: CustomPrimaryButton(
                           text: 'Log in',
-                          onPressed: () => onFormSubmit(loginCubit, authCubit),
+                          onPressed: () =>
+                              onFormSubmit(context, loginCubit, authCubit),
                         ),
                       ),
                       SizedBox(height: 20),
@@ -99,12 +100,17 @@ class LoginView extends StatelessWidget {
     );
   }
 
-  void onFormSubmit(LoginCubit loginCubit, AuthCubit authCubit) async {
+  void onFormSubmit(
+    BuildContext context,
+    LoginCubit loginCubit,
+    AuthCubit authCubit,
+  ) async {
     final isloginOk = loginCubit.validateForm();
-    if (isloginOk)
+    if (isloginOk) {
       await authCubit.login(
         loginCubit.email,
         loginCubit.password,
       );
+    }
   }
 }

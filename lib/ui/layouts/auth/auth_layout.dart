@@ -14,8 +14,6 @@ class AuthLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final authCubit = BlocProvider.of<AuthCubit>(context);
-    authCubit.isAuthenticated();
     return Scaffold(
       backgroundColor: Colors.white,
       body: Scrollbar(

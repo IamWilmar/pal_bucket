@@ -59,18 +59,20 @@ class MyApp extends StatelessWidget {
             scaffoldMessengerKey: NotificationService.messengerKey,
             builder: (context, child) {
               //AuthLayout;
-              if (state.authStatus == AuthStatus.checking) {
+              if (state.authStatus == AuthStatus.checking)
                 return SplashLayout();
-              }
+
               if (state.authStatus == AuthStatus.authenticated) {
+                print("====Main authenticated=====");
                 return HomeLayout(child: child ?? Container());
               } else {
+                print("====Main NOT authenticated=====");
                 return AuthLayout(child: child ?? Container());
               }
             },
           );
         } else {
-          return SizedBox();
+          return Container();
         }
       },
     );
